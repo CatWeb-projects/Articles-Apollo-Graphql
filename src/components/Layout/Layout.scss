@@ -1,0 +1,13 @@
+.layout {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgb(245, 245, 245);
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+}
