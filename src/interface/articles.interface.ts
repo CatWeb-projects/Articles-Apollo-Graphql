@@ -8,5 +8,5 @@ export interface ArticlesProps {
   description: {
     intro: string,
   },
-  banner: string,
+  thumbnail: string,
 }

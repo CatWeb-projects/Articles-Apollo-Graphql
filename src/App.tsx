@@ -1,13 +1,18 @@
 import React from 'react';
-import { Articles, Layout } from './components';
+import { BrowserRouter } from 'react-router-dom';
+import MainRoutes from './routes/routes';
+
+import './App.scss';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <Layout>
-        <Articles />
-      </Layout>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <MainRoutes />
+      </div>
+    </BrowserRouter>
   );
 }
 

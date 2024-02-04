@@ -3,7 +3,9 @@ import React from 'react';
 export const Header = () => {
   return (
     <header>
-      <img src="/images/logo.svg" alt="logo" />
+      <a href="/">
+        <img src="/images/logo.svg" alt="logo" />
+      </a>
     </header>
   )
 }
