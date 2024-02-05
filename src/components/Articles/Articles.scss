@@ -2,6 +2,9 @@
   width: 100%;
   padding: 16px;
   max-width: 984px;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 16px;
   
   &__wrapper {
     width: 100%;
@@ -15,6 +18,12 @@
 
   &__content {
     margin: 0 16px;
+
+    > a:hover {
+      h3 {
+        color: rgb(255, 71, 0);
+      }
+    }
   }
 
   &__image {
