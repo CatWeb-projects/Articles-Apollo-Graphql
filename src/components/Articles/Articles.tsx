@@ -38,7 +38,8 @@ export const Articles = () => {
     return () => {
       loadingDataRef.current = false
     }
-  }, [scrollTop, items]);
+    // eslint-disable-next-line
+  }, [scrollTop]);
 
   console.log(scrollTop)
   console.log(items, 'data')
