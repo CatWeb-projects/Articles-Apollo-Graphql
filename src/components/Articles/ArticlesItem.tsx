@@ -2,7 +2,7 @@ import React from 'react';
 import { ArticlesProps } from '../../interface/articles.interface';
 
 interface Props {
-  article: ArticlesProps
+  article: ArticlesProps;
 }
 
 export const ArticlesItem = ({ article }: Props) => {

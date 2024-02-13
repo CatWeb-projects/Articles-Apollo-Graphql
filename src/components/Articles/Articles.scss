@@ -9,6 +9,8 @@
   &__wrapper {
     width: 100%;
     margin-top: 40px;
+    max-height: calc(100vh - 215px);
+    overflow-y: scroll;
   }
 }
 
