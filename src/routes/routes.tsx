@@ -16,7 +16,7 @@ function MainRoutes() {
           index
           element={
             (
-              <Suspense fallback={<div>...loading</div>}>
+              <Suspense fallback={<div>...loading page</div>}>
                 <ArticlesPage />
               </Suspense>
             )
@@ -26,7 +26,7 @@ function MainRoutes() {
           path=":lang/:url"
           element={
             (
-              <Suspense fallback={<div>...loading</div>}>
+              <Suspense fallback={<div>...loading page</div>}>
                 <ArticlePage />
               </Suspense>
             )

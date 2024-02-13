@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { ArticlesItem } from './ArticlesItem';
 import { ArticlesProps } from '../../interface/articles.interface';
@@ -15,15 +15,16 @@ export const Articles = () => {
 
   const articles = useMemo(() => data?.contents, [data?.contents])
 
-  // const handleScroll = () => {
-  //   if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
-  //     return;
-  //   }
-  //   setItems(items + 10);
-  // };
+  useEffect(() => {
+    if (!loading && loadingDataRef?.current) {
+      loadingDataRef.current = false
+    }
+  }, [loading])
 
-  const handleScroll = (event: any) => {
-    setScrollTop(event.currentTarget.scrollTop);
+  const handleScroll = (event: { currentTarget: { scrollTop: number }}) => {
+    if (!loadingDataRef?.current) {
+      setScrollTop(event.currentTarget.scrollTop);
+    }
   };
 
   useEffect(() => {
@@ -32,6 +33,10 @@ export const Articles = () => {
       if ((scrollTop + clientHeight ) >= scrollHeight - 20) {
         loadingDataRef.current = true
         setItems(items + 10);
+        ref.current.scrollTo({
+          top: scrollHeight,
+          behavior: "smooth",
+        });
       }
     }
     
@@ -40,9 +45,6 @@ export const Articles = () => {
     }
     // eslint-disable-next-line
   }, [scrollTop]);
-
-  console.log(scrollTop)
-  console.log(items, 'data')
   
   return (
     <div className="articles">
@@ -50,12 +52,14 @@ export const Articles = () => {
       {loading && <div>...loading</div>}
 
       <div className="articles__wrapper" ref={ref} onScroll={handleScroll}>
-        {articles?.length ? articles?.map((article: ArticlesProps) => (
+        {articles?.map((article: ArticlesProps) => (
           <ArticlesItem article={article}  key={article.id} />
-        )): (
-          <div>No articles</div>
-        )}
+        ))}
       </div>
+      
+      {articles?.length === 0 && !loading && (
+         <div>No articles</div>
+      )}
 
       {error && <div>{error?.message}</div>}
     </div>
