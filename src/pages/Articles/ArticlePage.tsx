@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { getArticle } from '../../components/services/api';
+import { getArticle } from '../../services/api';
 import './ArticlesPage.scss';
 
 const ArticlePage = () => {

@@ -5,8 +5,8 @@ export const getArticles = (items: number) => gql`
     contents(
       project_id: "5107de83-f208-4ca4-87ed-9b69d58d16e1", 
       lang: "ru", 
-      skip: 0, 
-      take: ${items}
+      skip: ${items}, 
+      take: 10
     ) {
       id,
       url,
